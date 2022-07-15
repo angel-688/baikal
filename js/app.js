@@ -6865,10 +6865,12 @@ PERFORMANCE OF THIS SOFTWARE.
                 }
             }
         }));
-        const playIcon = document.querySelector(".video-block__play-icon");
-        playIcon.addEventListener("click", (function(e) {
+        const play = document.querySelector(".video-block__play-icon");
+        play.addEventListener("click", (function(e) {
             document.querySelector(".video-block__video").classList.add("_play");
-            document.querySelector(".video-block__item").play();
+            const src = document.querySelector(".video-block__item").src;
+            let newSrc = src + "?rel=0&showinfo=0&autoplay=1";
+            document.querySelector(".video-block__item").setAttribute("src", `${newSrc}`);
         }));
         window["FLS"] = true;
         isWebp();
